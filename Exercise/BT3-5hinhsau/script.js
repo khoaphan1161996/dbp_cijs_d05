@@ -65,18 +65,3 @@
 // console.log(countBoomerangs([9, 5, 9, 5, 1, 1, 1]))
 // console.log(countBoomerangs([5, 6, 6, 7, 6, 3, 9]))
 // console.log(countBoomerangs([4, 4, 4, 9, 9, 9, 9]))
-
-function isSelfDescribing(n){
-    n = String(n)
-    for (let i = 0; i < n.length; i++) {
-        if(i%2!=0){
-            n = n.split("")
-            console.log(n)
-        }
-        
-    }
-    
-    
-}
-
-isSelfDescribing(10123331)
