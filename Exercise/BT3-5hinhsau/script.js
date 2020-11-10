@@ -65,3 +65,6 @@
 // console.log(countBoomerangs([9, 5, 9, 5, 1, 1, 1]))
 // console.log(countBoomerangs([5, 6, 6, 7, 6, 3, 9]))
 // console.log(countBoomerangs([4, 4, 4, 9, 9, 9, 9]))
+
+// lập trình hướng đối tượng
+// Js có tính kế thừa, không cố tính đóng gói , đa hình và tính trừu tượng
