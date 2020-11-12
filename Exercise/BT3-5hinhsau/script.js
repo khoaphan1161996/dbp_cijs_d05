@@ -32,12 +32,13 @@
 // Write a function that takes a 2D array, checks if it's a magic square and returns either true or false depending on the result.
 
 // function isMagicSquare(array){
-//     let chieudai = array.length
-//     for(let i = 0 ; i < array.length ; i ++){
-//         for(let j = 0 ; j < array[i].length ; j++){
-//             if(i[j])
-//         }
+//     let sum = 0
+//     for(let i = 0 ; i < array[0].length ; i ++){
+//         sum += array[0][i]
 //     }
+    
+//     // hàng
+//     for(let i = 0 ; i < array)
 // }
 
 // console.log(isMagicSquare([
