@@ -1,13 +1,9 @@
 import React from 'react'
 import '../assets/css/header.css'
-
-export function Header(props) {
+export function Header(props){
     return (
-    <h1 className="red">
-        😀Emoji Search 😀
-    </h1>
-    // <h1 style="{{color:'red'}}">
-    // 😀Emoji Search 😀
-    // </h1>
+        <div>
+            <h1 className="red"> 😹 Search for your favorite emoji 😺</h1>
+        </div>
     )
 }
