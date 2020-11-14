@@ -1,6 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import { Header } from './Components/Header'
+import { Header } from './Components/header'
 import { SearchBar } from './Components/Searchbar'
 import { Emoji } from './Components/Emoji'
 import React from 'react'
