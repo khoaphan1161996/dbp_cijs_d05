@@ -19,12 +19,22 @@
 //             string.push(res[i])
 //         }
 //     }
-//     return string.join("")
+//     string = new Array(...new Set(string.reverse()))
+        
+//     return string.reverse().join("")
 // }
 
 // console.log(sigilize("i am healthy"))
 // console.log(sigilize("I FOUND MY SOULMATE"))
 // console.log(sigilize("I have a job I enjoy and it pays well"))
+
+// function sum(){
+//     console.log(arguments)
+// }
+// array = [1,2,3,4,5,6,7]
+// sum(...array)
+// sum(1,2,3,4,5,6,7)
+
 
 // 7. Digital Egomania: the Self-Describing Numbers
 // In this challenge, you have to establish if a given number is self-describing. To be self-describing, a positive number must have an even quantity of digits, because it has to be split into separated pairs of adjacent digits x and y, and each pair can be interpreted as a declaration: among the digits of the number, there are x instances of the digit equal to y.
