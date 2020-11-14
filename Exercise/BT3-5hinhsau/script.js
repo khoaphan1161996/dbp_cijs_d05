@@ -171,15 +171,189 @@
 // For males take the day of birth adding one zero at the start if is less than 10 (any 9th day -> 09 | any 20th day -> 20).
 // For females take the day of birth and sum 40 to it (any 9th day -> 49 | any 20th day -> 60).
 
-// function fiscalCode(obj){
+// const consonants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
+// const vowels = ["a", "e", "i", "o", "u"]
+// const months = {
+//     1: "A",
+//     2: "B",
+//     3: "C",
+//     4: "D",
+//     5: "E",
+//     6: "H",
+//     7: "L",
+//     8: "M",
+//     9: "P",
+//     10: "R",
+//     11: "S",
+//     12: "T"
+// }
 
+// function fiscalCode(obj) {
+//     let res = ""
+//     let res2 = ""
+//     let res3 = ""
+//     let res4 = ""
+//     let res5 = ""
+//     let name = obj.name.toLowerCase()
+//     let surname = obj.surname.toLowerCase()
+//     let gender = obj.gender
+//     let dob = obj.dob
+
+//     // surname
+//     if (surname.length > 2) {
+//         for (let i = 0; i < surname.length; i++) {
+//             for (let j = 0; j < consonants.length; j++) {
+//                 if (surname[i] == consonants[j]) {
+//                     res += surname[i].toUpperCase()
+//                 }
+//                 if (res.length == 3) {
+//                     break
+//                 }
+//             }
+//         }
+//         if (res.length < 3) {
+//             for (let i = 0; i < surname.length; i++) {
+//                 for (let j = 0; j < vowels.length; j++) {
+//                     if (surname[i] == vowels[j]) {
+//                         res += surname[i].toUpperCase()
+//                     }
+//                     if (res.length == 3) {
+//                         break
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     else if (surname.length <= 2) {
+//         for (let i = 0; i < surname.length; i++) {
+//             for (let j = 0; j < consonants.length; j++) {
+//                 if (surname[i] == consonants[j]) {
+//                     res += surname[i].toUpperCase()
+//                 }
+//             }
+//         }
+//         for (let i = 0; i < surname.length; i++) {
+//             for (let j = 0; j < vowels.length; j++) {
+//                 if (surname[i] == vowels[j]) {
+//                     res += surname[i].toUpperCase()
+//                 }
+//             }
+//         }
+//         for (let i = 0; i < 3; i++) {
+//             res += "X"
+//             if (res.length == 3) {
+//                 break
+//             }
+//         }
+//     }
+
+//     // name
+//     if (name.length > 2) {
+//         let a = 0
+//         for (let i = 0; i < name.length; i++) {
+//             for (let j = 0; j < consonants.length; j++) {
+//                 if (name[i] == consonants[j]) {
+//                     a += 1
+//                     res2 += name[i].toUpperCase()
+//                 }
+//                 if (res2.length == 3) {
+//                     break
+//                 }
+//             }
+//         }
+//         if (res2.length < 3) {
+//             for (let i = 0; i < name.length; i++) {
+//                 for (let j = 0; j < vowels.length; j++) {
+//                     if (name[i] == vowels[j]) {
+//                         res2 += name[i].toUpperCase()
+//                     }
+//                     if (res2.length == 3) {
+//                         break
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     else if (name.length <= 2) {
+//         for (let i = 0; i < name.length; i++) {
+//             for (let j = 0; j < consonants.length; j++) {
+//                 if (name[i] == consonants[j]) {
+//                     res2 += name[i].toUpperCase()
+//                 }
+//             }
+//         }
+//         for (let i = 0; i < name.length; i++) {
+//             for (let j = 0; j < vowels.length; j++) {
+//                 if (name[i] == vowels[j]) {
+//                     res2 += name[i].toUpperCase()
+//                 }
+//             }
+//         }
+//         for (let i = 0; i < 3; i++) {
+//             res2 += "X"
+//             if (res2.length == 3) {
+//                 break
+//             }
+//         }
+//     }
+
+//     // dob
+//     // year
+//     dob = dob.split("/")
+//     let year = dob[2].split("")
+//     let arrayYear = []
+//     for(let i = year.length; i >= 2;i--){
+//         arrayYear.splice(0,0,year[i])
+//     }
+//     arrayYear = arrayYear.join("")
+//     res3 += arrayYear
+
+//     // month
+//     let month = Number(dob[1])
+//     let arrayMonth = []
+//     for(let x in months){
+//         if(month == x){
+//             res4 += months[x]
+//         }
+//     }
+
+//     // day
+//     let day = Number(dob[0])
+//     if(gender=="M"){
+//         if(day<10){
+//             res5 += "0"+day
+//         }
+//         else {
+//             res5 += day
+//         }
+//     }
+//     else if(gender=="F"){
+//         res5 += 40 + day
+//     }
+
+//     var result = res.concat(res2).concat(res3).concat(res4).concat(res5)
+//     console.log(result)
 // }
 
 // fiscalCode({
 //     name: "Matt",
-//     surname: "Edabit",
+//     surname: "Edabith",
 //     gender: "M",
 //     dob: "1/1/1900"
+// })
+
+// fiscalCode({
+//     name: "Helen",
+//     surname: "Yu",
+//     gender: "F",
+//     dob: "1/12/1950"
+// })
+
+// fiscalCode({
+//     name: "Mickey",
+//     surname: "Mouse",
+//     gender: "M",
+//     dob: "16/1/1928"
 // })
 
 // 10. Number of Boomerangs
