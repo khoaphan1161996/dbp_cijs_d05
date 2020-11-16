@@ -158,3 +158,87 @@
 // rolls([6, 1, 1])
 // rolls([1, 6, 5])
 // rolls([1, 5])
+
+// 10. Sexagenary Cycle (Chinese Zodiac)
+// In early recorded Chinese history, time was reckoned using the sexagenary (60-year) cycle, generated from two subcycles:
+// Five heavenly stems (elements) in this order: wood, fire, earth, metal, water. The stems change every two years. Twelve earthly branches (animals) in this order: rat, ox, tiger, rabbit, dragon, snake, horse, sheep, monkey, rooster, dog, pig. The branches change yearly. The combinations between these two sub-cycles result in a 60-year cycle where no two years are the same — for example, the 5 years of the Rat have 5 different elements: 1924 Wood Rat, 1936 Fire Rat, 1948 Earth Rat, 1960 Metal Rat, 1972 Water Rat.
+
+// function sexagenary(birthyear) {
+//     let toyear = 1997;
+//     let birthpet="Ox"
+//     let birthstem="Fire"
+//     let x = (toyear - birthyear) % 12
+//     let y = (toyear - birthyear) % 10
+
+//     if(y==0){
+//         birthstem="Fire"
+//     }
+//     else if(y==1 || y==-9){
+//         birthstem="Fire"
+//     }
+//     else if(y==9 || y==-1){
+//         birthstem="Earth"
+//     }
+//     else if(y==8 || y==-2){
+//         birthstem="Earth"
+//     }
+//     else if(y==7 || y==-3){
+//         birthstem="Metal"
+//     }
+//     else if(y==6 || y==-4){
+//         birthstem="Metal"
+//     }
+//     else if(y==5 || y==-5){
+//         birthstem="Water"
+//     }
+//     else if(y==4 || y==-6){
+//         birthstem="Water"
+//     }
+//     else if(y==3 || y==-7){
+//         birthstem="Wood"
+//     }
+//     else if(y==2 || y==-8){
+//         birthstem="Wood"
+//     }
+
+//     if ((x == 1) || (x == -11)) {   // vì 1996 bé hơn nên dư 1 và 2008 lớn hơn nên là dư -11
+//         birthpet="Mouse"      }
+//     else if (x == 0) {
+//         birthpet="Ox"  
+//     }
+//     else if((x == 11) || (x == -1)){
+//         birthpet="Tiger" 
+//     }
+//     else if((x == 10) || (x == -2)){
+//         birthpet="Rabbit" 
+//     }
+//     else if((x == 9) || (x == -3)){
+//         birthpet="Dragon" 
+//     }
+//     else if((x == 8) || (x == -4)){
+//         birthpet="Snake" 
+//     }
+//     else if((x == 7) || (x == -5)){
+//         birthpet="Horse"  
+//     }
+//     else if((x == 6) || (x == -6)){
+//         birthpet="Sheep"  
+//     }
+//     else if((x == 5) || (x == -7)){
+//         birthpet="Monkey" 
+//     }
+//     else if((x == 4) || (x == -8)){
+//         birthpet="Chicken"  
+//     }
+//     else if((x == 3) || (x == -9)){
+//         birthpet="Dog"   
+//     }
+//     else if((x == 2) || (x == -10)){
+//         birthpet="Pig" 
+//     }
+//     return birthstem +" "+ birthpet
+// }
+
+// console.log(sexagenary(1971))
+// console.log(sexagenary(1927))
+// console.log(sexagenary(1974))
