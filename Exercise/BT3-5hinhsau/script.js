@@ -20,7 +20,7 @@
 //         }
 //     }
 //     string = new Array(...new Set(string.reverse()))
-        
+
 //     return string.reverse().join("")
 // }
 
@@ -259,19 +259,42 @@
 
 //     // name
 //     if (name.length > 2) {
-//         let a = 0
+//         let countname = 0
 //         for (let i = 0; i < name.length; i++) {
 //             for (let j = 0; j < consonants.length; j++) {
 //                 if (name[i] == consonants[j]) {
-//                     a += 1
-//                     res2 += name[i].toUpperCase()
-//                 }
-//                 if (res2.length == 3) {
-//                     break
+//                     countname += 1
 //                 }
 //             }
 //         }
-//         if (res2.length < 3) {
+//         if (countname > 3) {
+//             for (let i = 0; i < name.length; i++) {
+//                 for (let j = 0; j < consonants.length; j++) {
+//                     if (name[i] == consonants[j]) {
+//                         res2 += name[i].toUpperCase()
+//                     }
+//                     if (res2.length == 4) {
+//                         break
+//                     }
+//                 }
+//             }
+//             res2 = res2.split("")
+//             res2.splice(1, 1)
+//             res2 = res2.join("")
+//         }
+//         else if (countname == 3) {
+//             for (let i = 0; i < name.length; i++) {
+//                 for (let j = 0; j < consonants.length; j++) {
+//                     if (name[i] == consonants[j]) {
+//                         res2 += name[i].toUpperCase()
+//                     }
+//                     if (res2.length == 3) {
+//                         break
+//                     }
+//                 }
+//             }
+//         }
+//         else if (countname < 3) {
 //             for (let i = 0; i < name.length; i++) {
 //                 for (let j = 0; j < vowels.length; j++) {
 //                     if (name[i] == vowels[j]) {
@@ -312,8 +335,8 @@
 //     dob = dob.split("/")
 //     let year = dob[2].split("")
 //     let arrayYear = []
-//     for(let i = year.length; i >= 2;i--){
-//         arrayYear.splice(0,0,year[i])
+//     for (let i = year.length; i >= 2; i--) {
+//         arrayYear.splice(0, 0, year[i])
 //     }
 //     arrayYear = arrayYear.join("")
 //     res3 += arrayYear
@@ -321,23 +344,23 @@
 //     // month
 //     let month = Number(dob[1])
 //     let arrayMonth = []
-//     for(let x in months){
-//         if(month == x){
+//     for (let x in months) {
+//         if (month == x) {
 //             res4 += months[x]
 //         }
 //     }
 
 //     // day
 //     let day = Number(dob[0])
-//     if(gender=="M"){
-//         if(day<10){
-//             res5 += "0"+day
+//     if (gender == "M") {
+//         if (day < 10) {
+//             res5 += "0" + day
 //         }
 //         else {
 //             res5 += day
 //         }
 //     }
-//     else if(gender=="F"){
+//     else if (gender == "F") {
 //         res5 += 40 + day
 //     }
 
