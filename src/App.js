@@ -5,25 +5,44 @@ import { Emoji } from './Components/Emoji'
 import React from 'react'
 import { emojiList } from './resources/emojiList'
 
+function filterEmoji(searchText,data){
+  return data.filter((value)=>{
+    return value.keywords.indexOf(searchText) != -1
+  })
+}
 
-console.log(emojiList)
-function App() {
-  let elist_ = []
-  for (let i = 0; i < 20; i++) {
-    elist_.push(
-      <Emoji symbol={emojiList[i].symbol} title={emojiList[i].title} />
-    )
+class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {}
+    this.handleInput = this.handleInput.bind(this)
   }
-
-
-  return (
-    <React.Fragment>
-      <Header />
-      <SearchBar />
-      { elist_}
-    </React.Fragment>
-
-  );
+  createEmojis(emojis){
+    let len = emojis>20?20:emojis.length
+    let elist_ = []
+    for (let i = 0; i < len; i++) {
+      elist_.push(
+        <Emoji symbol={emojis[i].symbol} title={emojis[i].title} />
+      )
+    }
+    return elist_
+  }
+  handleInput(e){
+    this.setState({
+      searchText: e.target.value
+    })
+  }
+  render(){
+    let elist = this.createEmojis(filterEmoji(this.state.searchText,emojiList))
+    return (
+      <React.Fragment>
+        <Header />
+        <SearchBar onChange={this.handleInput} />
+        { elist}
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
+
