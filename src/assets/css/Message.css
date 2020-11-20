@@ -1,0 +1,11 @@
+.sender{
+    float: left;
+    clear: right;
+    
+}
+.receiver{
+    float: right;
+    clear: left;
+    /* width: 50%; */
+    /* display: block; */
+}
