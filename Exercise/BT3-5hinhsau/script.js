@@ -397,7 +397,7 @@
 
 // function countBoomerangs(array) {
 //     let count = 0
-//     for (let i = 0; i < array.length; i++) {
+//     for (let i = 0; i < array.length-2; i++) {
 //         if (array[i] == array[i + 2] && array[i] != array[i + 1]) {
 //             count += 1
 //         }
