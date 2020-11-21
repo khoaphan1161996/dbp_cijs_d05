@@ -14,7 +14,9 @@ function filterEmoji(searchText,data){
 class App extends React.Component {
   constructor(props){
     super(props)
-    this.state = {}
+    this.state = {
+      searchText: ""
+    }
     this.handleInput = this.handleInput.bind(this)
   }
   createEmojis(emojis){
