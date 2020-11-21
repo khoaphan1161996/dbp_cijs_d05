@@ -1,0 +1,12 @@
+.search {
+    display: flex;
+    flex-direction: row;
+}
+
+.red {
+    height: 50px;
+}
+
+.color {
+    color: red;
+}
