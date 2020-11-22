@@ -1,0 +1,18 @@
+.mid {
+    display: flex;
+    justify-content: center;
+    color: #FFF;
+    background-color: #1EAEDB;
+    border-color: #1EAEDB;
+    outline: 0;
+    cursor: pointer;
+    height: 38px;
+    text-align: center;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 38px;
+    width: 150px;
+    height: 50px;
+    margin: 0 auto;
+}
