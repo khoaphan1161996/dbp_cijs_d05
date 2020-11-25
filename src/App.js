@@ -5,47 +5,44 @@ import { Search } from './components/Search'
 import { Show } from './components/Show'
 
 const url = "https://www.googleapis.com/books/v1/volumes?q=quilting"
-function API(){
-  fetch(url)
-  .then((res)=>res.json())
-  .then(data => {
-    console.log(data)
-    let items = data.items.map((value)=>{
-      return {
-        title : value.volumeInfo.title,
-        author: value.volumeInfo.authors[0],
-        publisher: value.volumeInfo.publisher,
-        published: value.volumeInfo.publishedDate
-      }
-      
-    })
-    console.log(items)
-  })
-}
-
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      book : ""
+      books: []
     }
-    this.input = this.input.bind(this)
-    this.find = this.find.bind(this)
+    this.handleKeyDown = this.handleKeyDown.bind(this)
   }
-  input(e){
-    this.setState({
-      book: e.target.value
-    })
-    API()
+
+  API(e) {
+    if(e.key=="Enter"){
+      return fetch(url)
+      .then((res) => res.json())
+    }
   }
-  find(){
-    console.log(this.state.book)
+
+  handleKeyDown(e) {
+    this.API()
+      .then(data => {
+        let books = this.state.books
+        let items = data.items.map((value) => {
+          return {
+            title: value.volumeInfo.title,
+            author: value.volumeInfo.authors ? value.volumeInfo.authors.join(', ') : ' ',
+            publisher: value.volumeInfo.publisher ? value.volumeInfo.publisher : ' ',
+            published: value.volumeInfo.publishedDate ? value.volumeInfo.publishedDate : ' '
+          }
+        })
+        books.push(items)
+        this.setState({ books: books })
+      })
   }
+
   render() {
     return (
       <div className="App">
         <Header />
-        <Search onClick={this.find} onKeyDown={this.input}/>
+        <Search onClick={this.handleKeyDown} onKeyDown={this.API} />
         <div className="Shows">
           <Show title="Vinh" img="https://sachvui.com/cover/2015/Dac-nhan-tam.jpg" author="khoa" publisher="KD" published="1996" />
           <Show title="Vinh" img="https://sachvui.com/cover/2015/Dac-nhan-tam.jpg" author="khoa" publisher="KD" published="1996" />
