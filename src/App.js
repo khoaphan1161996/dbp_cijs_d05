@@ -5,8 +5,22 @@ import { Search } from './components/Search'
 import { Show } from './components/Show'
 
 const url = "https://www.googleapis.com/books/v1/volumes?q=quilting"
-function url(){
+function API(){
   fetch(url)
+  .then((res)=>res.json())
+  .then(data => {
+    console.log(data)
+    let items = data.items.map((value)=>{
+      return {
+        title : value.volumeInfo.title,
+        author: value.volumeInfo.authors[0],
+        publisher: value.volumeInfo.publisher,
+        published: value.volumeInfo.publishedDate
+      }
+      
+    })
+    console.log(items)
+  })
 }
 
 class App extends React.Component {
@@ -22,6 +36,7 @@ class App extends React.Component {
     this.setState({
       book: e.target.value
     })
+    API()
   }
   find(){
     console.log(this.state.book)
