@@ -15,40 +15,40 @@ class App extends React.Component {
   }
 
   API(e) {
-    if(e.key=="Enter"){
-      return fetch(url)
-      .then((res) => res.json())
-    }
+    return fetch(url)
+    .then((res) => res.json())
   }
 
-  handleKeyDown(e) {
+  search(e){
     this.API()
-      .then(data => {
-        let books = this.state.books
-        let items = data.items.map((value) => {
-          return {
-            title: value.volumeInfo.title,
-            author: value.volumeInfo.authors ? value.volumeInfo.authors.join(', ') : ' ',
-            publisher: value.volumeInfo.publisher ? value.volumeInfo.publisher : ' ',
-            published: value.volumeInfo.publishedDate ? value.volumeInfo.publishedDate : ' '
-          }
-        })
-        books.push(items)
-        this.setState({ books: books })
-      })
+    return 
   }
+
+  // handleKeyDown(e) {
+
+  //     .then(data => {
+  //       let books = this.state.books
+  //       let items = data.items.map((value) => {
+  //         return {
+  //           title: value.volumeInfo.title,
+  //           author: value.volumeInfo.authors ? value.volumeInfo.authors.join(', ') : ' ',
+  //           publisher: value.volumeInfo.publisher ? value.volumeInfo.publisher : ' ',
+  //           published: value.volumeInfo.publishedDate ? value.volumeInfo.publishedDate : ' '
+  //         }
+  //       })
+  //       books.push(items)
+  //       this.setState({ books: books })
+  //     })
+  // }
 
   render() {
+    // let books = this.search
     return (
       <div className="App">
         <Header />
         <Search onClick={this.handleKeyDown} onKeyDown={this.API} />
         <div className="Shows">
-          <Show title="Vinh" img="https://sachvui.com/cover/2015/Dac-nhan-tam.jpg" author="khoa" publisher="KD" published="1996" />
-          <Show title="Vinh" img="https://sachvui.com/cover/2015/Dac-nhan-tam.jpg" author="khoa" publisher="KD" published="1996" />
-          <Show title="Vinh" img="https://sachvui.com/cover/2015/Dac-nhan-tam.jpg" author="khoa" publisher="KD" published="1996" />
-          <Show title="Vinh" img="https://sachvui.com/cover/2015/Dac-nhan-tam.jpg" author="khoa" publisher="KD" published="1996" />
-          <Show title="Vinh" img="https://sachvui.com/cover/2015/Dac-nhan-tam.jpg" author="khoa" publisher="KD" published="1996" />
+          {/* <Show title="Vinh" img="https://sachvui.com/cover/2015/Dac-nhan-tam.jpg" author="khoa" publisher="KD" published="1996" /> */}
         </div>
       </div>
     );
