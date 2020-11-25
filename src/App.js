@@ -30,9 +30,11 @@ class App extends React.Component {
     return elist_
   }
   handleInput(e){
-    this.setState({
-      searchText: e.target.value
-    })
+    if(e.key === "Enter"){
+      this.setState({
+        searchText: e.target.value
+      })
+    }
   }
   render(){
     let elist = this.createEmojis(filterEmoji(this.state.searchText,emojiList))
@@ -47,4 +49,3 @@ class App extends React.Component {
 }
 
 export default App;
-
