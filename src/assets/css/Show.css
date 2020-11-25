@@ -1,0 +1,22 @@
+.Show {
+    width:30%;
+    height: 20%;
+    margin: 10px;
+}
+
+.Show > h3,h4 {
+    text-align: center;
+    color: #6d4c41;
+    font-size: 16px;
+
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.Show  img {
+    width: 200px;
+    height: 300px;
+}
