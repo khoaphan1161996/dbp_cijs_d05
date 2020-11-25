@@ -1,0 +1,28 @@
+.Search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    box-shadow: 0 2px rgba(0,0,0,.05);
+    font-size: 18px;
+    color: #424242;
+    text-align: center;
+    width: 400px;
+    height: 40px;
+}
+
+.button {
+    margin-left: 10px;
+    cursor: pointer;
+    outline:none;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+    background:  #ffa000;
+    height: 40px;
+}
