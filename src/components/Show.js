@@ -5,7 +5,7 @@ export function Show(props) {
         <div className="Show">
             <h3>{props.title}</h3>
             <div className="row">
-                <img src={props.img}></img>
+                <img src={props.img} alt="cannot load"></img>
                 <div className="info" >
                     <h4 className="author">Author: {props.author}</h4>
                     <h4 className="publiser">Puplisher: {props.publisher}</h4>
