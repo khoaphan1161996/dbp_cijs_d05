@@ -41,9 +41,10 @@ class App extends React.Component {
           books.push({
             title: bookss[i].volumeInfo.title,
             img : bookss[i].volumeInfo.imageLinks.smallThumbnail ,
-            author: bookss[i].volumeInfo[`authors[0]`] ,
+            author: bookss[i].volumeInfo.authors.join(", ") ,
             publisher: bookss[i].volumeInfo.publisher ,
-            published: bookss[i].volumeInfo.publishedDate
+            published: bookss[i].volumeInfo.publishedDate,
+            previewLink: bookss[i].volumeInfo.previewLink
           })
         }
 

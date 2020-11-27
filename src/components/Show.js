@@ -10,6 +10,7 @@ export function Show(props) {
                     <h4 className="author">Author: {props.author}</h4>
                     <h4 className="publiser">Puplisher: {props.publisher}</h4>
                     <h4 className="publised">Published: {props.published}</h4>
+                    <a href={props.previewLink} target="_blank">More Info</a>
                 </div>
             </div>
 

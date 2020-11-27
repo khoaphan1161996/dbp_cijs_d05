@@ -1,6 +1,5 @@
 .Show {
     width:45%;
-    height: 30%;
     margin: 20px;
     background: white;
     padding: 15px;
@@ -35,4 +34,17 @@
 .info{
     margin-left: 10px;
     width: 50%;
+}
+
+.info > a{
+    width: fit-content;
+    padding: 5px;
+    border: 1px lightblue solid;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: lightseagreen;
+    text-decoration: none;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
