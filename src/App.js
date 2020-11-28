@@ -1,13 +1,13 @@
 import React from 'react'
 import './App.css';
-import {Header} from  './components/Header'
-import {Search} from './components/Search'
-import {Show} from './components/Show'
+import { Header } from './components/Header'
+import { Search } from './components/Search'
+import { Show } from './components/Show'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state= {
+    this.state = {
       charity: [
         {
           img: "https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg",
@@ -15,58 +15,41 @@ class App extends React.Component {
           homecountry: "USA",
           serves: "VietNam",
           instruction: "Is a Charity from USA .....",
-          link : "https://www.facebook.com/"
+          link: "https://www.facebook.com/"
         },
-        {
-          img: "https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg",
-          title: "USA-Charity",
-          homecountry: "USA",
-          serves: "VietNam",
-          instruction: "Is a Charity from USA .....",
-          link : "https://www.facebook.com/"
-        },
-        {
-          img: "https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg",
-          title: "USA-Charity",
-          homecountry: "USA",
-          serves: "VietNam",
-          instruction: "Is a Charity from USA .....",
-          link : "https://www.facebook.com/"
-        },
-        {
-          img: "https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg",
-          title: "USA-Charity",
-          homecountry: "USA",
-          serves: "VietNam",
-          instruction: "Is a Charity from USA .....",
-          link : "https://www.facebook.com/"
-        },
-        {
-          img: "https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg",
-          title: "USA-Charity",
-          homecountry: "USA",
-          serves: "VietNam",
-          instruction: "Is a Charity from USA .....",
-          link : "https://www.facebook.com/"
-        }
       ],
     }
     this.searchCharity = this.searchCharity.bind(this)
   }
-  searchCharity(e){
-    if(e.key="Enter"){
-      console.log(e.target.value)
+  searchCharity(e) {
+    if (e.key = "Enter") {
+      const url_target =
+        "https://api.globalgiving.org/api/public/projectservice/featured/projects";
+
+      const api_key = "79cca3e8-01cb-4259-84a1-01d059c6882f";
+
+      const url = `${url_target}?api_key=${api_key}`;
+      fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+      }).then(res => res.json())
+        .then(data => {
+          console.log(data)
+        }).catch(err => console.log(err))
     }
   }
 
   render() {
     return (
       <div className="App">
-          <Header/>
-          <Search onChange={this.searchCharity}/>
-          <div className="Shows">
-              {this.state.charity.map((charity,ind)=><Show key={ind} {...charity} />)}
-          </div>
+        <Header />
+        <Search onChange={this.searchCharity} />
+        <div className="Shows">
+          {this.state.charity.map((charity, ind) => <Show key={ind} {...charity} />)}
+        </div>
       </div>
     );
   }
