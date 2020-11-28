@@ -41,7 +41,7 @@ class App extends React.Component {
           books.push({
             title: bookss[i].volumeInfo.title,
             img : bookss[i].volumeInfo.imageLinks.smallThumbnail ,
-            author: bookss[i].volumeInfo.authors.join(", ") ,
+            author: bookss[i].volumeInfo.authors != undefined ? bookss[i].volumeInfo.authors.join(", ") : "",
             publisher: bookss[i].volumeInfo.publisher ,
             published: bookss[i].volumeInfo.publishedDate,
             previewLink: bookss[i].volumeInfo.previewLink
@@ -49,20 +49,20 @@ class App extends React.Component {
         }
 
         this.setState({
-          books: books
+          books: books,
+          searchText:"",
         })
+
       })
       
-      this.setState({
-        searchText : ""
-      })
+     
   }
 
   render() {
     return (
       <div className="App">
         <Header />
-        <Search input={this.state.searchText} onClick={this.handleKeyDown} onChange={this.search} />
+        <Search onClick={this.handleKeyDown} value={this.state.searchText} onKeyDown={this.search} />
         <div className="Shows">
           {this.state.books.map((books, ind) => <Show key={ind} {...books} />)}
         </div>
