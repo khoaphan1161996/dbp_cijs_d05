@@ -9,14 +9,6 @@ class App extends React.Component {
     super(props)
     this.state = {
       charity: [
-        {
-          img: "https://i.ytimg.com/vi/1Ne1hqOXKKI/maxresdefault.jpg",
-          title: "USA-Charity",
-          homecountry: "USA",
-          serves: "VietNam",
-          instruction: "Is a Charity from USA .....",
-          link: "https://www.facebook.com/"
-        },
       ],
     }
     this.searchCharity = this.searchCharity.bind(this)
@@ -38,6 +30,21 @@ class App extends React.Component {
         },
       }).then(res => res.json())
         .then(data => {
+          let datas = data.search.response.projects.project
+          let charity = []
+          for(let i = 0 ; i <datas.length ; i++){
+            charity.push({
+              imageLink: datas[i].imageLink,
+              title : datas[i].title,
+              country: datas[i].country,
+              region: datas[i].region,
+              activities: datas[i].activities,
+              projectLink: datas[i].projectLink
+            })
+          }
+          this.setState({
+            charity: charity
+          })
           console.log(data)
         }).catch(err => console.log(err))
     }
