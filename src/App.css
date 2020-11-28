@@ -23,19 +23,9 @@ body {
   align-items: center;
 }
 
-<<<<<<< HEAD
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-=======
 .Shows {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 80%;
->>>>>>> 0b92da5859b3e5c26737969f642c4cb7f759269e
 }

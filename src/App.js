@@ -22,9 +22,9 @@ class App extends React.Component {
     this.searchCharity = this.searchCharity.bind(this)
   }
   searchCharity(e) {
-    if (e.key = "Enter") {
+    if (e.key === "Enter") {
       const url_target =
-        "https://api.globalgiving.org/api/public/services/search/projects?api_key=";
+        "https://api.globalgiving.org/api/public/services/search/projects";
 
       const api_key = "79cca3e8-01cb-4259-84a1-01d059c6882f";
       const search = `${e.target.value}`
@@ -47,7 +47,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <Search onChange={this.searchCharity} />
+        <Search onKeyDown={this.searchCharity} />
         <div className="Shows">
           {this.state.charity.map((charity, ind) => <Show key={ind} {...charity} />)}
         </div>
