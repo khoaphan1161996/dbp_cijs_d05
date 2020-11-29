@@ -1,25 +1,28 @@
 import './App.css';
 import React from 'react'
-import {Header} from './components/Header'
-import {Form} from './components/Form'
-import {List} from './components/List'
+import { Header } from './components/Header'
+import { Form } from './components/Form'
+import { List } from './components/List'
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       searchText: "",
-      todos : []
+      todos: []
     }
     this.search = this.search.bind(this)
-    this.handleTodo = this.handleTodo.bind(this)
+    this.handleAddTodo = this.handleAddTodo.bind(this)
+    this.handelDelTodo = this.handelDelTodo.bind(this)
   }
-  search(e){
+
+  search(e) {
     this.setState({
       searchText: e.target.value
     })
   }
-  handleTodo(){
+
+  handleAddTodo() {
     let todos = this.state.todos
     todos.push({
       input: this.state.searchText,
@@ -29,18 +32,29 @@ class App extends React.Component {
     })
     console.log(this.state.todos)
   }
-  render(){
+
+  handelDelTodo(index) {
+    let todos = this.state.todos
+    todos.splice(index, 1)
+    this.setState({
+      todos: todos
+    })
+  }
+
+  // handelEditTodo(index){
+  //   let todos = this.state.todos
+
+  // }
+
+  render() {
     return (
       <div className="App">
         <Header />
-        <Form onChange={this.search} onClick={this.handleTodo} />
-        <div>
-            {this.state.todos.map((todo,ind)=>{
-              return (
-                <List key={ind} {...todo}/>
-              )
-            })
-            }
+        <Form onChange={this.search} onClick={this.handleAddTodo} />
+        <div className="todos">
+          {this.state.todos.map((todo, ind) =>
+            (<List key={ind} {...todo} onClickDel={()=>this.handelDelTodo(ind)} />)
+          )}
         </div>
       </div>
     );
