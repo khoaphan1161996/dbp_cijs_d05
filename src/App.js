@@ -8,20 +8,40 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
+      searchText: "",
       todos : []
     }
+    this.search = this.search.bind(this)
+    this.handleTodo = this.handleTodo.bind(this)
   }
   search(e){
-    return e.target.value
+    this.setState({
+      searchText: e.target.value
+    })
   }
   handleTodo(){
-    this.search()
+    let todos = this.state.todos
+    todos.push({
+      input: this.state.searchText,
+    })
+    this.setState({
+      todos: todos
+    })
+    console.log(this.state.todos)
   }
   render(){
     return (
       <div className="App">
         <Header />
-        <Form onChange={this.search} />
+        <Form onChange={this.search} onClick={this.handleTodo} />
+        <div>
+            {this.state.todos.map((todo,ind)=>{
+              return (
+                <List key={ind} {...todo}/>
+              )
+            })
+            }
+        </div>
       </div>
     );
   }
