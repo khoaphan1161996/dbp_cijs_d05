@@ -11,11 +11,17 @@ class App extends React.Component {
       todos : []
     }
   }
+  search(e){
+    return e.target.value
+  }
+  handleTodo(){
+    this.search()
+  }
   render(){
     return (
       <div className="App">
         <Header />
-        <Form />
+        <Form onChange={this.search} />
       </div>
     );
   }

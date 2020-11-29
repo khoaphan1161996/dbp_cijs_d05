@@ -1,7 +1,11 @@
 import '../assets/css/List.css'
 
-export function List(props){
+export function List(props) {
     return (
-        <h1>Hello this is TodoApp</h1>
+        <li className="todo">
+            <span contentEditable="true" type="text">{props.input}</span>
+            <button>Edit</button>
+            <button>Delete</button>
+        </li>
     )
 }
