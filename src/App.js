@@ -8,29 +8,23 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      searchText: "",
       todos: []
     }
-    this.search = this.search.bind(this)
     this.handleAddTodo = this.handleAddTodo.bind(this)
     this.handelDelTodo = this.handelDelTodo.bind(this)
   }
 
-  search(e) {
-    this.setState({
-      searchText: e.target.value
-    })
-  }
-
-  handleAddTodo() {
-    let todos = this.state.todos
-    todos.push({
-      input: this.state.searchText,
-    })
-    this.setState({
-      todos: todos
-    })
-    console.log(this.state.todos)
+  handleAddTodo(e) {
+    if (e.key == "Enter") {
+      let todos = this.state.todos
+      todos.push({
+        input: e.target.value,
+      })
+      this.setState({
+        todos: todos
+      })
+      console.log(this.state.todos)
+    }
   }
 
   handelDelTodo(index) {
@@ -39,6 +33,7 @@ class App extends React.Component {
     this.setState({
       todos: todos
     })
+    console.log(this.state.todos)
   }
 
   // handelEditTodo(index){
@@ -50,10 +45,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <Form onChange={this.search} onClick={this.handleAddTodo} />
+        <Form onKeyDown={this.handleAddTodo} />
         <div className="todos">
           {this.state.todos.map((todo, ind) =>
-            (<List key={ind} {...todo} onClickDel={()=>this.handelDelTodo(ind)} />)
+            (<List key={ind} {...todo} onClickDel={() => this.handelDelTodo(ind)} />)
           )}
         </div>
       </div>
