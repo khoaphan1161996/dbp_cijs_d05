@@ -1,0 +1,16 @@
+.edit {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.edit > textarea {
+    width: 400px;
+    font-size: 24px;
+}
+
+.edit > button {
+    margin-left: 10px;
+}

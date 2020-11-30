@@ -3,6 +3,7 @@ import React from 'react'
 import { Header } from './components/Header'
 import { Form } from './components/Form'
 import { List } from './components/List'
+import {TodoEditor} from './components/TodoEditor'
 
 class App extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class App extends React.Component {
       todos: []
     }
     this.handleAddTodo = this.handleAddTodo.bind(this)
-    this.handelDelTodo = this.handelDelTodo.bind(this)
+    this.handleDelTodo = this.handleDelTodo.bind(this)
   }
 
   handleAddTodo(e) {
@@ -19,40 +20,45 @@ class App extends React.Component {
       let todos = this.state.todos
       todos.push({
         input: e.target.value,
+        isEdit: false
       })
       this.setState({
-        todos: todos
+        todos: todos,
       })
-      console.log(this.state.todos)
     }
   }
 
-  handelDelTodo(index) {
+  handleEditTodo(index) {
+    this.setState({ isEdit: true, selectedindx: index })
+  }
+
+  handleDelTodo(index) {
     let todos = this.state.todos
     todos.splice(index, 1)
     this.setState({
-      todos: todos
+      todos: todos,
     })
-    console.log(this.state.todos)
   }
 
-  // handelEditTodo(index){
-  //   let todos = this.state.todos
-
-  // }
-
   render() {
-    return (
-      <div className="App">
-        <Header />
-        <Form onKeyDown={this.handleAddTodo} />
-        <div className="todos">
-          {this.state.todos.map((todo, ind) =>
-            (<List key={ind} {...todo} onClickDel={() => this.handelDelTodo(ind)} />)
-          )}
+    if(this.state.isEdit){
+      return (
+        <TodoEditor {...this.state.todos[this.state.selectedindx]} indx={this.state.selectedindx} />
+      )
+    }
+    else {
+      return (
+        <div className="App">
+          <Header />
+          <Form onKeyDown={this.handleAddTodo} />
+          <div className="todos">
+            {this.state.todos.map((todo, ind) =>
+              (<List key={ind} {...todo} onClickEdit={() => this.handleEditTodo(ind)} onClickDel={() => this.handleDelTodo(ind)} />)
+            )}
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
