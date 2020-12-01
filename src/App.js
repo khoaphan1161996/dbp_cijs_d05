@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import React from 'react'
 import './App.css';
-import { Searchbar } from './components/Searchbar'
-import { Record } from './components/Record'
+import { Searchbar } from './Components/Searchbar'
+import { Record } from './Components/Record'
 const apiKey = "4d8fb5b93d4af21d66a2948710284366";
 class App extends React.Component {
   constructor(props) {
@@ -23,10 +23,11 @@ class App extends React.Component {
     if (e.key == 'Enter') {
       this.searchCity(e.target.value)
         .then(data => {
+          console.log(data)
           let cities = this.state.cities
           cities.push({
             citiname: data.name,
-            temperature: data.main.temp_max,
+            temperature: data.main.temp_max!=undefined ? data.main.temp_max : "Not available",
             status: data.weather[0].description.toUpperCase()
           })
           this.setState({ cities: cities })
