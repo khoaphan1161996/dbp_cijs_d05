@@ -43,7 +43,7 @@ class App extends React.Component {
   render() {
     if(this.state.isEdit){
       return (
-        <TodoEditor {...this.state.todos[this.state.selectedindx]} indx={this.state.selectedindx} />
+        <TodoEditor {...this.state.todos[this.state.selectedindx]} ind={this.state.selectedindx} />
       )
     }
     else {

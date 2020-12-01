@@ -4,7 +4,7 @@ export function TodoEditor(props){
     return (
         <div className="edit">
             <textarea defaultValue={props.input}></textarea>
-            <button>Save</button>
+            <button onClic>Save</button>
         </div>
     )
 }
