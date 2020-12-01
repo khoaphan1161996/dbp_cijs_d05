@@ -13,6 +13,7 @@ class App extends React.Component {
     }
     this.handleAddTodo = this.handleAddTodo.bind(this)
     this.handleDelTodo = this.handleDelTodo.bind(this)
+    this.save = this.save.bind(this)
   }
 
   handleAddTodo(e) {
@@ -32,6 +33,10 @@ class App extends React.Component {
     this.setState({ isEdit: true, selectedindx: index })
   }
 
+  save(index){
+    this.setState({ isEdit: false, selectedindx: index })
+  }
+
   handleDelTodo(index) {
     let todos = this.state.todos
     todos.splice(index, 1)
@@ -43,7 +48,7 @@ class App extends React.Component {
   render() {
     if(this.state.isEdit){
       return (
-        <TodoEditor {...this.state.todos[this.state.selectedindx]} ind={this.state.selectedindx} />
+        <TodoEditor {...this.state.todos[this.state.selectedindx]} onClickSave={()=>this.save()} />
       )
     }
     else {
