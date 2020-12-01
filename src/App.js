@@ -23,7 +23,6 @@ class App extends React.Component {
     if (e.key == 'Enter') {
       this.searchCity(e.target.value)
         .then(data => {
-          console.log(data)
           let cities = this.state.cities
           cities.push({
             citiname: data.name,
