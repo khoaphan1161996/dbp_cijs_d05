@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import React from 'react'
 import './App.css';
-import { Searchbar } from './Components/Searchbar'
-import { Record } from './Components/Record'
+import { Searchbar } from './components/Searchbar'
+import { Record } from './components/Record'
 const apiKey = "4d8fb5b93d4af21d66a2948710284366";
 class App extends React.Component {
   constructor(props) {
