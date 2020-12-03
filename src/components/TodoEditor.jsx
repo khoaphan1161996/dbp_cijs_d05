@@ -1,10 +1,10 @@
 import '../assets/css/TodoEditor.css'
 
-export function TodoEditor(props){
+export function TodoEditor({ indx, content, onClickSave }) {
     return (
         <div className="edit">
-            <textarea defaultValue={props.input}></textarea>
-            <button onClick={props.onClickSave}>Save</button>
+            <textarea defaultValue={content} onChange={e => { content = e.target.value }}></textarea>
+            <button onClick={() => onClickSave(indx, {content} )}>Save</button>
         </div>
     )
 }
