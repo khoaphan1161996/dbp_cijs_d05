@@ -9,7 +9,8 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      todos: []
+      todos: [],
+      isEdit: false
     }
     this.handleAddTodo = this.handleAddTodo.bind(this)
     this.handleDelTodo = this.handleDelTodo.bind(this)
@@ -21,20 +22,25 @@ class App extends React.Component {
       let todos = this.state.todos
       todos.push({
         input: e.target.value,
-        isEdit: false
       })
       this.setState({
         todos: todos,
       })
+      console.log(this.state)
     }
   }
 
   handleEditTodo(index) {
-    this.setState({ isEdit: true, selectedindx: index })
+    this.setState({ 
+      isEdit: true, 
+      selectedindx: index })
   }
 
   save(index){
-    this.setState({ isEdit: false, selectedindx: index })
+    this.setState({ 
+      isEdit: false, 
+      
+    })
   }
 
   handleDelTodo(index) {
@@ -43,12 +49,13 @@ class App extends React.Component {
     this.setState({
       todos: todos,
     })
+    console.log(this.state)
   }
 
   render() {
-    if(this.state.isEdit){
+    if(this.state.isEdit == true){
       return (
-        <TodoEditor {...this.state.todos[this.state.selectedindx]} onClickSave={()=>this.save()} />
+        <TodoEditor {...this.state.todos[this.state.selectedindx]} indx={this.state.selectedindx} onClickSave={()=>this.save()} onChangeEdit={this.changeEdit} />
       )
     }
     else {
