@@ -1,5 +1,8 @@
 ul li .inputTask{
     font-size: 24px;
+    background:#f7b5f6 ;
+    border-radius: 10px;
+    padding: 5px
 }
 
 button {

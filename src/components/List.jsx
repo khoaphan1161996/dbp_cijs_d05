@@ -4,10 +4,10 @@ export function List(props) {
     return (
         <ul className="todos">
             <li className="todo">
-                <span className="inputTask margin" type="text" >{props.content}</span>
+                <p className="inputTask margin" type="text" >{props.content}</p>
                 <div className="but">
-                    <button onClick={props.onClickEdit} className="marginbut">Edit</button>
-                    <button onClick={props.onClickDel} className="marginbut">Delete</button>
+                    <button onClick={props.onClickEdit} className="but"><i class="icon-trash"></i></button>
+                    <button onClick={props.onClickDel} className="but"><i class="fa fa-trash"></i></button>
                 </div>
             </li>
         </ul>
