@@ -43,6 +43,7 @@ class App extends React.Component {
       isEdit: false, 
       todos:todos
     })
+    console.log(this.state)
   }
 
   handleDelTodo(index) {

@@ -2,11 +2,13 @@ import '../assets/css/List.css'
 
 export function List(props) {
     return (
-        <ul>
+        <ul className="todos">
             <li className="todo">
                 <span className="inputTask margin" type="text" >{props.content}</span>
-                <button onClick={props.onClickEdit} className="margin">Edit</button>
-                <button onClick={props.onClickDel} className="margin">Delete</button>
+                <div className="but">
+                    <button onClick={props.onClickEdit} className="marginbut">Edit</button>
+                    <button onClick={props.onClickDel} className="marginbut">Delete</button>
+                </div>
             </li>
         </ul>
 
