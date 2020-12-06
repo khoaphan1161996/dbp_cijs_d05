@@ -1,0 +1,43 @@
+.container {
+    background: white;
+}
+
+/* Css form */
+.signup-form {
+    width: 442px;
+    height: auto;
+    margin: 0 auto;  /* trick căn giữa với dk có width */
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
+    border-radius: 16px;
+}
+
+.signup-form .form-controls{
+    padding: 40px;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    margin: 24px 0px;
+}
+
+.form-control label {
+    margin-bottom: 11px;
+}
+
+.form-control input {
+   padding: 16px;
+   border: 1px solid #e0e0e0 ;
+   border-radius: 4px;
+}
+
+.form-controls .btn-signup {
+    margin-top: 24px;
+    width: 100%;
+    background-color: #35CE97;
+    border: 1px solid #35CE97;
+    box-sizing: border-box;
+    border-radius: 88px;
+    padding: 16px 0;
+    color: #fff
+}
