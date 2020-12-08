@@ -8,6 +8,7 @@ import { TodoEditor } from './components/TodoEditor'
 import { Sign } from './components/Sign'
 import {SignUp} from './components/SignUp'
 import {SignIn} from './components/SignIn'
+import {LogOut} from './components/LogOut'
 //import Firebase
 import firebase from "firebase/app";
 import "firebase/auth";
@@ -20,9 +21,11 @@ class App extends React.Component {
     super(props)
     this.state = {
       display: {
+        Main: true ,
         SignUp: false,
         SignIn: false,
-        Todo: false
+        Todo: false,
+        LogOut: false
       },
       todos: [],
       isEdit: false
@@ -30,15 +33,18 @@ class App extends React.Component {
     this.handleAddTodo = this.handleAddTodo.bind(this)
     this.handleDelTodo = this.handleDelTodo.bind(this)
     this.onClickSave = this.onClickSave.bind(this)
+    this.onKeyDownSave = this.onKeyDownSave.bind(this)
     this.onClickSignUp = this.onClickSignUp.bind(this)
     this.onClickSignIn = this.onClickSignIn.bind(this)
     this.dangki = this.dangki.bind(this)
     this.dangnhap = this.dangnhap.bind(this)
+    this.onClickLogOut = this.onClickLogOut.bind(this)
   }
 
   onClickSignUp(){  
     this.setState({
       display : {
+        Main: true,
         SignUp:true,
       }
     })
@@ -47,6 +53,7 @@ class App extends React.Component {
   onClickSignIn(){  
     this.setState({
       display : {
+        Main: true,
         SignIn:true,
       }
     })
@@ -55,6 +62,7 @@ class App extends React.Component {
   dangki(){
     this.setState({
       display : {
+        Main: true,
         SignUp:false,
         SignIn:true,
       }
@@ -64,8 +72,20 @@ class App extends React.Component {
   dangnhap(){
     this.setState({
       display : {
+        Main: false,
         SignIn:false,
-        Todo:true
+        Todo:true,
+        LogOut : true
+      }
+    })
+  }
+
+  onClickLogOut(){
+    this.setState({
+      display: {
+        Main:true,
+        SignIn:true,
+        Todo:false
       }
     })
   }
@@ -92,12 +112,24 @@ class App extends React.Component {
 
   onClickSave(index, content) {
     let todos = this.state.todos
-    todos[index] = content
+    todos[index].content = content
     this.setState({
       isEdit: false,
       todos: todos
     })
     console.log(this.state)
+  }
+
+  onKeyDownSave(e, index, content) {
+    if(e.key=="Enter"){
+      let todos = this.state.todos
+      todos[index].content = content
+      this.setState({
+        isEdit: false,
+        todos: todos
+      })
+      console.log(this.state)
+    }
   }
 
   handleDelTodo(index) {
@@ -112,13 +144,20 @@ class App extends React.Component {
   render() {
     if (this.state.isEdit == true) {
       return (
-        <TodoEditor {...this.state.todos[this.state.selectedindx]} indx={this.state.selectedindx} onClickSave={this.onClickSave} />
+        <TodoEditor {...this.state.todos[this.state.selectedindx]} indx={this.state.selectedindx} onClickSave={this.onClickSave} onKeyDownSave={this.onKeyDownSave} />
       )
     }
     else {
       return (
         <div className="App">
-          <Sign onClickSignUp={this.onClickSignUp} onClickSignIn={this.onClickSignIn} />
+          {
+            this.state.display.Main &&
+            <Sign onClickSignUp={this.onClickSignUp} onClickSignIn={this.onClickSignIn} />
+          }
+          {
+            this.state.display.LogOut && 
+            <LogOut onClickLogOut={this.onClickLogOut}/> 
+          }
           <Header />
           {
             this.state.display.Todo &&

@@ -7,7 +7,7 @@ export function SignIn(props) {
             <div className="form-controls">
                 <div className="form-control" >
                     <label htmlFor="name">Name User</label>
-                    <input type="name" id="name" placeholder="Enter your user"/>
+                    <input type="text" id="name" placeholder="Enter your user"/>
                 </div>
                 <div className="form-control">
                     <label htmlFor="password">Password</label>
