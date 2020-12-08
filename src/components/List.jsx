@@ -4,7 +4,7 @@ export function List(props) {
     return (
         <ul className="todos">
             <li className="todo">
-                <p className="inputTask margin" type="text" >{props.content}</p>
+                <p className="inputTask margin" type="text" >{props.todos}</p>
                 <div className="but">
                     <button onClick={props.onClickEdit} className="marginbut"><i className="fa fa-edit"></i></button>
                     <button onClick={props.onClickDel} className="marginbut"><i className='fa fa-trash'></i></button>

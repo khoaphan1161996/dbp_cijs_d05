@@ -93,9 +93,9 @@ class App extends React.Component {
   handleAddTodo(e) {
     if (e.key == "Enter") {
       let todos = this.state.todos
-      todos.push({
-        content: e.target.value,
-      })
+      todos.push(
+        e.target.value,
+      )
       this.setState({
         todos: todos,
       })
@@ -112,7 +112,7 @@ class App extends React.Component {
 
   onClickSave(index, content) {
     let todos = this.state.todos
-    todos[index].content = content
+    todos[index] = content
     this.setState({
       isEdit: false,
       todos: todos
@@ -123,7 +123,7 @@ class App extends React.Component {
   onKeyDownSave(e, index, content) {
     if(e.key=="Enter"){
       let todos = this.state.todos
-      todos[index].content = content
+      todos[index] = content
       this.setState({
         isEdit: false,
         todos: todos
@@ -144,7 +144,7 @@ class App extends React.Component {
   render() {
     if (this.state.isEdit == true) {
       return (
-        <TodoEditor {...this.state.todos[this.state.selectedindx]} indx={this.state.selectedindx} onClickSave={this.onClickSave} onKeyDownSave={this.onKeyDownSave} />
+        <TodoEditor todoE = {this.state.todos[this.state.selectedindx]} indx={this.state.selectedindx} onClickSave={this.onClickSave} onKeyDownSave={this.onKeyDownSave} />
       )
     }
     else {
@@ -165,7 +165,8 @@ class App extends React.Component {
               <Form onKeyDown={this.handleAddTodo} />
               <div className="todos">
                 {this.state.todos.map((todo, ind) =>
-                  (<List key={ind} {...todo} onClickEdit={() => this.handleEditTodo(ind)} onClickDel={() => this.handleDelTodo(ind)} />)
+                  (<List key={ind} todos = {todo} 
+                    onClickEdit={() => this.handleEditTodo(ind)} onClickDel={() => this.handleDelTodo(ind)} />)
                 )}
               </div>
             </div>
