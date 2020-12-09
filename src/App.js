@@ -9,12 +9,7 @@ import { Sign } from './components/Sign'
 import {SignUp} from './components/SignUp'
 import {SignIn} from './components/SignIn'
 import {LogOut} from './components/LogOut'
-//import Firebase
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
-import { firebaseConfig } from './config/firebase.config'
-firebase.initializeApp(firebaseConfig)
+import {Todos} from './controllers/TodoController'
 
 class App extends React.Component {
   constructor(props) {
@@ -100,6 +95,7 @@ class App extends React.Component {
         todos: todos,
       })
       console.log(this.state)
+      // return <Todos todos={e.target.value} />
     }
   }
 
