@@ -7,11 +7,11 @@ export function SignIn(props) {
             <div className="form-controls">
                 <div className="form-control" >
                     <label htmlFor="name">Name User</label>
-                    <input type="text" id="name" placeholder="Enter your user"/>
+                    <input onChange={(e)=>props.handleChange(e,"name")} type="text" id="name" placeholder="Enter your user"/>
                 </div>
                 <div className="form-control">
                     <label htmlFor="password">Password</label>
-                    <input type="password" id="password" placeholder="Enter your password"/>
+                    <input onChange={(e)=>props.handleChange(e,"password")} type="password" id="password" placeholder="Enter your password"/>
                 </div>
                 <button onClick={props.dangnhap} className="btn-signup">Sign In</button>
             </div>

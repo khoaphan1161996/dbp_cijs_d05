@@ -7,7 +7,7 @@ export function SignUp(props) {
                 <div className="form-controls">
                     <div className="form-control" >
                         <label htmlFor="name">Name User</label>
-                        <input type="text" id="name" placeholder="Enter your user" />
+                        <input onChange={(e)=>props.handleChangeSignUp(e,"name")} type="text" id="name" placeholder="Enter your user" />
                     </div>
                     <div className="form-control">
                         <label htmlFor="email">Enter your email</label>
@@ -15,7 +15,7 @@ export function SignUp(props) {
                     </div>
                     <div className="form-control">
                         <label htmlFor="password">Password</label>
-                        <input type="password" id="password" placeholder="Enter your password" />
+                        <input onChange={(e)=>props.handleChangeSignUp(e,"password")} type="password" id="password" placeholder="Enter your password" />
                     </div>
                     <button onClick={props.dangki} className="btn-signup">Sign Up</button>
                 </div>
