@@ -80,19 +80,21 @@ class App extends React.Component {
     SignInC(this.state.Sname, this.state.Spass, status)
       .then(status => {
         if (status === true) {
-          this.setState({
-            display: {
-              Main: false,
-              SignIn: false,
-              Todo: true,
-              LogOut: true
-            }
-          })
+          // this.setState({
+          //   display: {
+          //     Todo: true,
+          //     LogOut: true
+          //   }
+          // })
           getTodoOf()
           .then(
             (todos) => {
               this.setState({
-                todos: todos
+                todos: todos,
+                display: {
+                  Todo: true,
+                  LogOut: true
+                }
               })
             }
           )
